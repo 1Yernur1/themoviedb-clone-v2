@@ -1,0 +1,44 @@
+.header {
+  height: 6.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #032541;
+  font-size: 1.6rem;
+
+
+  &__wrapper {
+    padding: 0 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  &__list {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+  }
+
+  &__link {
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+.right {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
