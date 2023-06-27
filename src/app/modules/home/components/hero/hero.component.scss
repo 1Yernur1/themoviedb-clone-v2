@@ -1,0 +1,76 @@
+.hero {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 130rem;
+  }
+
+  &__wrapper {
+    padding: 5.8rem 0;
+    // background: url('/assets/images/home-hero-background.jpg');
+    background: linear-gradient(90deg, rgba(3, 37, 65, 0.80) 0%, rgba(3, 37, 65, 0.00) 100%), url('/assets/images/home-hero-background.jpg'), lightgray 0px -23.125px / 100% 112.847% no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__content {
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+}
+
+.welcome {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 4.8rem;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    font-size: 3.2rem;
+    font-weight: 600;
+  }
+}
+
+.form {
+  position: relative;
+
+  &__input {
+    width: 100%;
+    padding: 1.2rem 12rem 1.2rem 2rem;
+    color: #757575;
+    font-size: 1.75rem;
+    border-radius: 3rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    width: 10rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #1ED5A9 0%, #01B4E4 100%);
+    border-radius: 3rem;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    &:hover {
+      color: #032541;
+    }
+  }
+}
