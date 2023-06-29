@@ -1,0 +1,52 @@
+<section class="trending">
+  <div class="trending__container">
+    <div class="trending__wrapper">
+      <div class="header">
+        <h2 class="header__title">Trending</h2>
+        <div class="selector">
+          <h3
+            class="selector__item"
+            [ngClass]="{ active: isDaily }"
+            (click)="getDailyTrendingMovies()"
+          >
+            <a>Today</a>
+          </h3>
+          <h3
+            class="selector__item"
+            [ngClass]="{ active: isWeekly }"
+            (click)="getWeeklyTrendingMovies()"
+          >
+            <a>This Week</a>
+          </h3>
+        </div>
+      </div>
+      <div class="body">
+        <div class="body__container">
+          <div class="body__wrapper">
+            <div class="card" *ngFor="let movie of trendingMovies">
+              <div class="card__image">
+                <a href="#  ">
+                  <img
+                    [src]="
+                      'https://www.themoviedb.org/t/p/w440_and_h660_face/' +
+                      movie.poster_path
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div class="card__body">
+                <h2 class="card__title">
+                  <a href="#">{{ movie.title }}</a>
+                </h2>
+                <p class="card__date">
+                  {{ movie.release_date | date : "MMM d, yyyy" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
