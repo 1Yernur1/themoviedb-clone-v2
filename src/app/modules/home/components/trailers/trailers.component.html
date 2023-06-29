@@ -1,1 +1,29 @@
-<p>trailers works!</p>
+<section class="trailers">
+  <div class="trailers__container">
+    <div class="trailers__wrapper" [style.background]="backgroundImage">
+      <div class="header">
+        <h3 class="header__title">Latest Trailers</h3>
+      </div>
+      <div class="body">
+        <div class="card__container">
+          <div class="card" *ngFor="let movie of upcomingMovies">
+            <div
+              class="card__image"
+              (mouseenter)="changeBackground(movie.backdrop_path)"
+            >
+              <a href="#">
+                <img
+                  [src]="
+                    'https://www.themoviedb.org/t/p/w355_and_h200_multi_faces/' +
+                    movie.backdrop_path
+                  "
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
