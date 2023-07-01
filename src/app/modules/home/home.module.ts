@@ -6,6 +6,8 @@ import { HomeComponent } from './home.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { TrendingComponent } from './components/trending/trending.component';
 import { TrailersComponent } from './components/trailers/trailers.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,12 @@ import { TrailersComponent } from './components/trailers/trailers.component';
     TrendingComponent,
     TrailersComponent,
   ],
-  imports: [CommonModule, HttpClientModule, BrowserAnimationsModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule,
+    YouTubePlayerModule,
+  ],
 })
 export class HomeModule {}

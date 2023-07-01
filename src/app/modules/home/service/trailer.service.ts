@@ -16,4 +16,10 @@ export class TrailerService {
       `${this.url}/movie/upcoming?api_key=${apiConfig.key}`
     );
   }
+
+  getMovieVideos(movieId: number) {
+    return this.httpClient.get(
+      `${this.url}/movie/${movieId}/videos?api_key=${apiConfig.key}`
+    );
+  }
 }

@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostBinding,
+  OnInit,
+} from '@angular/core';
 import { TrendingService } from '../../service/trending.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-trending',

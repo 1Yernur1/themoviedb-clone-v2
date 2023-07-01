@@ -3,6 +3,7 @@
     <div class="trailers__wrapper" [style.background]="backgroundImage">
       <div class="header">
         <h3 class="header__title">Latest Trailers</h3>
+        <h3 class="header__subtitle">On TV</h3>
       </div>
       <div class="body">
         <div class="card__container">
@@ -11,7 +12,7 @@
               class="card__image"
               (mouseenter)="changeBackground(movie.backdrop_path)"
             >
-              <a href="#">
+              <a href="#" (click)="getTrailer(movie.id)">
                 <img
                   [src]="
                     'https://www.themoviedb.org/t/p/w355_and_h200_multi_faces/' +
@@ -19,7 +20,13 @@
                   "
                   alt=""
                 />
+                <fa-icon [icon]="faPlay"></fa-icon>
               </a>
+            </div>
+            <div class="card__info">
+              <h2 class="card__title">
+                <a href="#">{{ movie.title }}</a>
+              </h2>
             </div>
           </div>
         </div>
@@ -27,3 +34,19 @@
     </div>
   </div>
 </section>
+
+<div class="video" *ngIf="showTrailer">
+  <div class="video__content">
+    <div class="video__header">
+      <h3>Movie Title</h3>
+      <a href="#" (click)="showTrailer = false">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </a>
+    </div>
+    <youtube-player
+      [videoId]="movieTrailerYoutubeKey"
+      [width]="854"
+      [height]="480"
+    ></youtube-player>
+  </div>
+</div>
