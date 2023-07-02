@@ -8,6 +8,7 @@ import { TrendingComponent } from './components/trending/trending.component';
 import { TrailersComponent } from './components/trailers/trailers.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     BrowserAnimationsModule,
     FontAwesomeModule,
     YouTubePlayerModule,
+    RouterModule
   ],
 })
 export class HomeModule {}

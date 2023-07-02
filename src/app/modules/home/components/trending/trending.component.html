@@ -23,7 +23,7 @@
       <div class="body">
         <div class="body__container">
           <div class="body__wrapper">
-            <div class="card" *ngFor="let movie of trendingMovies">
+            <div class="card" *ngFor="let movie of trendingMovies" [@fadeIn]>
               <div class="card__image">
                 <a href="#  ">
                   <img
@@ -50,3 +50,4 @@
     </div>
   </div>
 </section>
+

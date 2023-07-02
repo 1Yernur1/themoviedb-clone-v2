@@ -12,6 +12,14 @@ import { trigger, transition, style, animate } from '@angular/animations';
   selector: 'app-trending',
   templateUrl: './trending.component.html',
   styleUrls: ['./trending.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('1500ms', style({ opacity: 1 }))
+      ]),
+    ])
+  ]
 })
 export class TrendingComponent implements OnInit {
   trendingMovies: any[] = [];

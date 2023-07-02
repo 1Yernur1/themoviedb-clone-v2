@@ -1,27 +1,38 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TrailerService } from '../../service/trailer.service';
 import { faPlay, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  state,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-trailers',
   templateUrl: './trailers.component.html',
   styleUrls: ['./trailers.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('1500ms', style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class TrailersComponent implements OnInit {
   upcomingMovies: any[] = [];
   backgroundImage: string = '';
 
-  movieTrailerYoutubeKey: string = '';
-  showTrailer: boolean = false;
-
   faPlay = faPlay;
-  faXmark = faXmark;
 
-  constructor(private trailerService: TrailerService) {}
+  constructor(private trailerService: TrailerService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllTrailers();
-    this.addVideoPlayer();
   }
 
   getAllTrailers(): void {
@@ -32,13 +43,7 @@ export class TrailersComponent implements OnInit {
   }
 
   changeBackground(imagePath: string): void {
-    this.backgroundImage = `linear-gradient(to right, rgba(3, 37, 65, 0.75) 100%, #FFFFFF 0%), url('https://www.themoviedb.org/t/p/w1920_and_h427_multi_faces/${imagePath}')`;
-  }
-
-  addVideoPlayer() {
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    document.body.appendChild(tag);
+    this.backgroundImage = `linear-gradient(to right, rgba(3, 37, 65, 0.75) 100%, #FFFFFF 0%), url('https://www.themoviedb.org/t/p/w1920_and_h427_multi_faces/${imagePath}') center / cover no-repeat`;
   }
 
   getMovieVideos(movieId: number) {
@@ -49,8 +54,11 @@ export class TrailersComponent implements OnInit {
     this.getMovieVideos(movieId).subscribe((data: any) => {
       const videos = data.results;
       const trailer = videos.find((video: any) => video.type == 'Trailer');
-      this.movieTrailerYoutubeKey = trailer.key;
-      this.showTrailer = true;
+      this.navigateToVideo(trailer.key);
     });
+  }
+
+  navigateToVideo(key: string) {
+    this.router.navigate(['/video', key]);
   }
 }
